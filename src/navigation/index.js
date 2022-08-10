@@ -2,12 +2,11 @@ import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { LoginScreeen, RegistrationScreen, SplashScreen, DashbordScreen, DetailsScreen } from "../Screen";
+import { LoginScreeen, RegistrationScreen, SplashScreen, DashbordScreen, DetailsScreen, StudentForm } from "../Screen";
 import { CallScreen, ChatScreen, ContactScreen } from '../Screen/TabScreen';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Colors } from "../assets/constants";
-import InputTextComponent from "../Component/InputTextComponent";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -25,8 +24,8 @@ const MyTabs = () => {
                } else if (route.name === 'Contact') {
                   iconName = focused ? 'book' : 'book';
                }
-               else if (route.name === ""){
-                  iconName = focused ? 'book' : 'book';
+               else if (route.name === 'Student') {
+                  iconName = focused ? 'person-sharp' : 'person-sharp';
                }
                return <Ionicons name={iconName} size={size} color={color} />;
             },
@@ -34,6 +33,7 @@ const MyTabs = () => {
          tabBarOptions={{
             activeTintColor: Colors.DEFAULT_BLACK,
             inactiveTintColor: 'gray',
+            keyboardHidesTabBar: true,
             style: {
                position: 'absolute',
                paddingHorizontal: 10,
@@ -45,7 +45,7 @@ const MyTabs = () => {
          <Tab.Screen name="Call" component={CallScreen} />
          <Tab.Screen name="Chat" component={ChatScreen} />
          <Tab.Screen name="Contact" component={ContactScreen} />
-         <Tab.Screen name="Text" component={InputTextComponent}/>
+         <Tab.Screen name="Student" component={StudentForm}/>
       </Tab.Navigator >
    );
 }

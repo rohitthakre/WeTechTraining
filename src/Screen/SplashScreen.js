@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Text, Image, StyleSheet, StatusBar, Button, Alert } from 'react-native';
+import { View, Text, Image, StyleSheet, StatusBar } from 'react-native';
 import { Colors, Images } from "../assets/constants";
 import { Display } from '../utils'
 const SplashScreen = ({ navigation }) => {
