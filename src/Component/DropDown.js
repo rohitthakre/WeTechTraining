@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { Dropdown } from 'react-native-element-dropdown';
-
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const data = [
@@ -16,7 +15,7 @@ const data = [
 ];
 
 
-const DropDown = () => {
+const DropDown = ({data}) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -39,7 +38,7 @@ const DropDown = () => {
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
-        data={data}
+        data={{data}}
         search
         maxHeight={300}
         labelField="label"

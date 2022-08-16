@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react'
 import Seprator from '../Component/Seprator';
 import { Display } from '../utils'
@@ -82,22 +83,24 @@ const dataItem = [
 
 ];
 
-const DashbordScreen = ({navigation}) => {
-   console.log("Log navigation props",navigation)
+const DashbordScreen = ({ navigation }) => {
+   console.log("Log navigation props", navigation)
    return (
-      <FlatList
-         data={dataItem}
-         numColumns={3}
-         renderItem={({ item }) =>
-            <View style={styles.container}  >
-               <TouchableOpacity onPress={() =>navigation.navigate("Details")} >
-                  <Image source={(item.data)} resizeMode="contain" style={{ width: Display.setWidth(15), height: Display.setWidth(15) }} />
-                  <View style={styles.textContainer}>
-                     <Text style={styles.textdecore}>{item.name}</Text>
-                  </View>
-               </TouchableOpacity>
-            </View>}
-      />
+      <SafeAreaView>
+         <FlatList
+            data={dataItem}
+            numColumns={3}
+            renderItem={({ item }) =>
+               <View style={styles.container}  >
+                  <TouchableOpacity onPress={() => navigation.navigate("Details")} >
+                     <Image source={(item.data)} resizeMode="contain" style={{ width: Display.setWidth(15), height: Display.setWidth(15) }} />
+                     <View style={styles.textContainer}>
+                        <Text style={styles.textdecore}>{item.name}</Text>
+                     </View>
+                  </TouchableOpacity>
+               </View>}
+         />
+      </SafeAreaView>
    )
 }
 
@@ -120,8 +123,8 @@ const styles = StyleSheet.create({
       fontWeight: '500',
       paddingVertical: 10
    },
-   textContainer:{
-      justifyContent:'center',
-      alignItems:'center'
+   textContainer: {
+      justifyContent: 'center',
+      alignItems: 'center'
    }
 })

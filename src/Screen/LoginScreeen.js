@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View ,KeyboardAvoidingView} from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors, Images } from '../assets/constants';
 import Feather from 'react-native-vector-icons/Feather';
 import Display from '../utils/Display';
@@ -7,6 +8,8 @@ import Seprator from '../Component/Seprator';
 
 const LoginScreeen = ({navigation}) => {
   return (
+    <SafeAreaView>
+
     <KeyboardAvoidingView style={styles.conatiner} >
       <View style={styles.imageContainer}>
         <Image source={Images.AIRFRAFT}
@@ -57,6 +60,7 @@ const LoginScreeen = ({navigation}) => {
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
+    </SafeAreaView>
   )
 }
 

@@ -2,8 +2,10 @@ import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { LoginScreeen, RegistrationScreen, SplashScreen, DashbordScreen, DetailsScreen, StudentForm } from "../Screen";
 import { CallScreen, ChatScreen, ContactScreen } from '../Screen/TabScreen';
+import { SafeAreaProvider} from 'react-native-safe-area-context';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Colors } from "../assets/constants";
@@ -45,22 +47,24 @@ const MyTabs = () => {
          <Tab.Screen name="Call" component={CallScreen} />
          <Tab.Screen name="Chat" component={ChatScreen} />
          <Tab.Screen name="Contact" component={ContactScreen} />
-         <Tab.Screen name="Student" component={StudentForm}/>
+         <Tab.Screen name="Student" component={StudentForm} />
       </Tab.Navigator >
    );
 }
 
 const Navigators = () => {
    return (
-      <NavigationContainer>
-         <Stack.Navigator initialRouteName="Splash" >
-            <Stack.Screen name="Splash" component={SplashScreen} />
-            <Stack.Screen name="Login" component={LoginScreeen} />
-            <Stack.Screen name="Registration" component={RegistrationScreen} />
-            <Stack.Screen name="DashBoard" component={DashbordScreen} />
-            <Stack.Screen name="Details" component={MyTabs} />
-         </Stack.Navigator>
-      </NavigationContainer>
+      <SafeAreaProvider>
+         <NavigationContainer>
+            <Stack.Navigator initialRouteName="Splash" >
+               <Stack.Screen name="Splash" component={SplashScreen} />
+               <Stack.Screen name="Login" component={LoginScreeen} />
+               <Stack.Screen name="Registration" component={RegistrationScreen} />
+               <Stack.Screen name="DashBoard" component={DashbordScreen} />
+               <Stack.Screen name="Details" component={MyTabs} />
+            </Stack.Navigator>
+         </NavigationContainer>
+      </SafeAreaProvider>
    );
 };
 

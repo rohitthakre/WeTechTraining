@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, SafeAreaView, TextInput, ScrollView } from 'react-native'
+import { Text, StyleSheet, View, TextInput, ScrollView } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Feather from 'react-native-vector-icons/Feather';
 import { Display } from '../utils';
-import { Colors } from '../assets/constants';
+import { Colors,ConstantData } from '../assets/constants';
 import { ComponentText, DropDown, CheckBoxComponent, Seprator, SwitchComponent, RadioButtonComponent } from '../Component/index'
 
 export default class StudentForm extends Component {
@@ -34,10 +35,10 @@ export default class StudentForm extends Component {
                />
                   <RadioButtonComponent />
                {/* This is the section related to the DOB   */}
-               <View>
-               <DropDown />
-               <DropDown />
-               <DropDown />
+               <View style={{flexDirection:'row'}}>
+               <DropDown data={ConstantData.Day} />
+               <DropDown data={ConstantData.Month}/>
+               <DropDown data={ConstantData.Year}/>
                </View>
                <View style={styles.ContaintContainer}>
                   <ComponentText

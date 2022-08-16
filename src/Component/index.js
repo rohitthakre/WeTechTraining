@@ -7,5 +7,6 @@ import Seprator from './Seprator';
 import CheckBoxComponent from './CheckBoxComponent';
 import SwitchComponent from './SwitchComponent';
 import RadioButtonComponent from './RadioButtonComponent';
+import FlatlistComponent from './FlatlistComponent';
 
-export {CallComponent,ChatComponent,ComponentText,ContactComponet,DropDown,Seprator,CheckBoxComponent,SwitchComponent,RadioButtonComponent}
+export { CallComponent, ChatComponent, ComponentText, ContactComponet, DropDown, Seprator, CheckBoxComponent, SwitchComponent, RadioButtonComponent, FlatlistComponent }

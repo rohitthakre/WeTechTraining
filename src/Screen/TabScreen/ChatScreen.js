@@ -1,13 +1,32 @@
-import { Text, StyleSheet, View } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 import React, { Component } from 'react'
+import { ConstantData, Images } from '../../assets/constants'
+import { FlatlistComponent, Seprator } from '../../Component'
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+const Data = ConstantData.CallConmonetData;
 
 export default class
    extends Component {
    render() {
       return (
-         <View style={styles.conatiner}>
-            <Text>Chat Screen</Text>
-         </View>
+         <SafeAreaView>
+
+            <FlatList
+               data={Data}
+               keyExtractor={(item) => item.key}
+               renderItem={({ item }) => {
+                  return (
+                     <FlatlistComponent
+                        Images={Images.USER}
+                        Name={item.name}
+                        Massege={item.massege}
+                        Icon={"call"}
+                        Time={"4:5 am"} />
+                  );
+               }}
+            />
+         </SafeAreaView>
       )
    }
 }
